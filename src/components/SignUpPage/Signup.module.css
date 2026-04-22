@@ -1,0 +1,114 @@
+.signup_content {
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.signup_content h1 {
+  width: 188px;
+  height: 69px;
+  font-size: 28px;
+  font-weight: 500;
+  color: var(--black);
+}
+
+.signup_form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.input_group {
+  position: relative;
+}
+
+.input_group input {
+  width: 335px;
+  height: 40px;
+  padding: 0 12px;
+  border: 1px solid var(--grey);
+  border-radius: 6px;
+  background-color: var(--background);
+}
+
+.input_group input:focus {
+  outline: none;
+  border-color: var(--purple);
+}
+
+.input_group label {
+  position: absolute;
+  color: var(--purple);
+  font-size: 13px;
+  top: -7px;
+  left: 10px;
+  background-color: var(--background);
+  padding: 0 12px 0 4px;
+}
+
+.required {
+  color: var(--red);
+  margin-left: 2px;
+}
+
+.agency_selection p {
+  font-size: 13px;
+  color: var(--black);
+  margin-bottom: 10px;
+}
+
+.radio_group {
+  display: flex;
+  gap: 20px;
+}
+
+.radio_container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 14px;
+  gap: 5px;
+  color: var(--black);
+  user-select: none;
+}
+
+.radio_container input {
+  display: none;
+}
+
+.custom_radio {
+  width: 22px;
+  height: 22px;
+  border: 1px solid var(--dark-grey);
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+}
+
+.radio_container input:checked ~ .custom_radio {
+  border-color: var(--purple);
+}
+
+.custom_radio::after {
+  content: "";
+  position: absolute;
+  display: none;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--purple);
+}
+
+.radio_container input:checked ~ .custom_radio::after {
+  display: block;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  margin-top: 4px;
+}
