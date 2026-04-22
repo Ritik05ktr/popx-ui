@@ -47,14 +47,15 @@ const Login = () => {
     } else {
       setErrors({});
 
-      const storedUser = JSON.parse(localStorage.getItem("user"));
+      const users = JSON.parse(localStorage.getItem("users")) || [];
 
-      if (
-        storedUser &&
-        storedUser.email === formData.email &&
-        storedUser.password === formData.password
-      ) {
-        localStorage.setItem("currentUser", JSON.stringify(storedUser));
+      const matchedUser = users.find(
+        (user) =>
+          user.email === formData.email && user.password === formData.password,
+      );
+
+      if (matchedUser) {
+        localStorage.setItem("currentUser", JSON.stringify(matchedUser));
 
         navigate("/account");
       } else {

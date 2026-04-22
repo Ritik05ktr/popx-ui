@@ -65,7 +65,14 @@ const Signup = () => {
       setErrors(validationErrors);
     } else {
       setErrors({});
-      localStorage.setItem("user", JSON.stringify(formData));
+      const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
+
+      const updatedUsers = [...existingUsers, formData];
+
+      localStorage.setItem("users", JSON.stringify(updatedUsers));
+
+      localStorage.setItem("currentUser", JSON.stringify(formData));
+
       navigate("/account");
     }
   };

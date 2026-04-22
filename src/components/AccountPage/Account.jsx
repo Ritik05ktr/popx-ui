@@ -2,11 +2,14 @@ import { useEffect, useState } from "react";
 import styles from "./Account.module.css";
 
 const Account = () => {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState({});
 
   useEffect(() => {
-    const storedUser = JSON.parse(localStorage.getItem("currentUser"));
-    setUser(storedUser);
+    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
+    if (currentUser) {
+      setUser(currentUser);
+    }
   }, []);
 
   return (
@@ -14,6 +17,7 @@ const Account = () => {
       <div className={styles.account_topsection}>
         <p>Account Settings</p>
       </div>
+
       <div className={styles.account_content}>
         <div className={styles.account_profile}>
           <div className={styles.image}>
@@ -28,18 +32,20 @@ const Account = () => {
               alt="camera-image"
             />
           </div>
+
           <div className={styles.text}>
-            <h3>{user?.fullName || "User Name"}</h3>
-            <p>{user?.email || "user@email.com"} </p>
+            <h3>{user.fullName || "User Name"}</h3>
+            <p>{user.email || "user@email.com"}</p>
           </div>
         </div>
+
         <div className={styles.account_description}>
           <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veritatis
-            eligendi quam saepe? Vitae, aliquam nulla quasi in necessitatibus
-            alias quibusdam.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
+            eligendi quam saepe.
           </p>
         </div>
+
         <div className={styles.divider}></div>
       </div>
     </div>
